@@ -12,6 +12,8 @@ export class UsersComponent implements OnInit {
   showExtended: boolean = true;
   // tslint:disable-next-line:no-inferrable-types
   loaded: boolean = false;
+  enableAdd = true;
+  currentClasses = {};
 
   constructor() { }
 
@@ -27,7 +29,9 @@ export class UsersComponent implements OnInit {
             street: '50 Main Street',
             city: 'Boston',
             state: 'MA'
-          }
+          },
+          image: 'http://lorempixel.com/600/600/people/3',
+          isActive: true
         },
         {
           firstName: 'Kevin',
@@ -37,7 +41,9 @@ export class UsersComponent implements OnInit {
             street: '20 School Street',
             city: 'Boston',
             state: 'MA'
-          }
+          },
+          image: 'http://lorempixel.com/600/600/people/2',
+          isActive: false
         },
         {
           firstName: 'Karen',
@@ -47,13 +53,14 @@ export class UsersComponent implements OnInit {
             street: 'The T.A.R.D.I.S',
             city: 'London',
             state: 'England'
-          }
+          },
+          image: 'http://lorempixel.com/600/600/people/1'
         }
       ];
 
       this.addUser({
         firstName: 'Matt',
-        lastName: 'Smith',
+        lastName: 'Smith'
       });
       this.loaded = true;
     }, 3000);
@@ -61,9 +68,17 @@ export class UsersComponent implements OnInit {
 
 
     this.showExtended = true;
+    this.setCurrentClasses();
   }
 
   addUser(user: User) {
     this.users.push(user);
+  }
+
+  setCurrentClasses() {
+    this.currentClasses = {
+      'btn-success': this.enableAdd,
+      'big-text': this.showExtended
+    };
   }
 }
