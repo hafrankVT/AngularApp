@@ -14,6 +14,7 @@ export class UsersComponent implements OnInit {
   loaded: boolean = false;
   enableAdd = true;
   currentClasses = {};
+  currentStyles = {};
 
   constructor() { }
 
@@ -67,8 +68,8 @@ export class UsersComponent implements OnInit {
     // This is where you would initialize API calls and such, rather than the constructor which is for Properties
 
 
-    this.showExtended = true;
     this.setCurrentClasses();
+    this.setCurrentStyles();
   }
 
   addUser(user: User) {
@@ -79,6 +80,13 @@ export class UsersComponent implements OnInit {
     this.currentClasses = {
       'btn-success': this.enableAdd,
       'big-text': this.showExtended
+    };
+  }
+
+  setCurrentStyles() {
+    this.currentStyles = {
+      'padding-top': this.showExtended ? '0' : '40px',
+      'font-size': this.showExtended ? '' : '72px'
     };
   }
 }
