@@ -9,7 +9,7 @@ import { User } from '../../models/User';
 export class UsersComponent implements OnInit {
   users: User[];
   // tslint:disable-next-line:no-inferrable-types
-  showExtended: boolean = false;
+  showExtended: boolean = true;
   // tslint:disable-next-line:no-inferrable-types
   loaded: boolean = false;
   enableAdd = true;
@@ -29,7 +29,8 @@ export class UsersComponent implements OnInit {
           state: 'MA'
         },
         isActive: true,
-        registered: new Date('01/02/2018 08:30:00')
+        registered: new Date('01/02/2018 08:30:00'),
+        hide: true
       },
       {
         firstName: 'Kevin',
@@ -41,7 +42,8 @@ export class UsersComponent implements OnInit {
           state: 'MA'
         },
         isActive: false,
-        registered: new Date('03/11/2018 08:30:00')
+        registered: new Date('03/11/2018 08:30:00'),
+        hide: true
       },
       {
         firstName: 'Karen',
@@ -52,13 +54,15 @@ export class UsersComponent implements OnInit {
           city: 'London',
           state: 'England'
         },
-        registered: new Date('11/02/2017 10:30:00')
+        registered: new Date('11/02/2017 10:30:00'),
+        hide: true
       }
     ];
 
     this.addUser({
       firstName: 'Matt',
-      lastName: 'Smith'
+      lastName: 'Smith',
+      hide: true
     });
     this.loaded = true;
   }
@@ -68,8 +72,7 @@ export class UsersComponent implements OnInit {
     this.users.push(user);
   }
 
-  fireEvent(e) {
-    console.log('Button Pressed');
-    console.log(e.type);
-  }
+  // toggleHide(user: User) {
+  //   user.hide = ! user.hide;
+  // }
 }
