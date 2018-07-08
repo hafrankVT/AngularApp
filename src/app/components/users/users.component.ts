@@ -13,6 +13,7 @@ export class UsersComponent implements OnInit {
   // tslint:disable-next-line:no-inferrable-types
   loaded: boolean = false;
   enableAdd = true;
+  showUserForm = false;
 
   constructor() { }
 
@@ -75,4 +76,14 @@ export class UsersComponent implements OnInit {
   // toggleHide(user: User) {
   //   user.hide = ! user.hide;
   // }
+
+  onSubmit(e) {
+    console.log(123);
+    e.preventDefault();
+  }
+
+  fireEvent(e) {
+    console.log(e.type);
+    console.log(e.target.value);
+  }
 }
