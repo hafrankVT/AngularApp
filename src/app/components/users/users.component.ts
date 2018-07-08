@@ -12,12 +12,7 @@ export class UsersComponent implements OnInit {
     firstName: '',
     lastName: '',
     // These fields are not required, but adding defaults anyways.
-    age: null,
-    address: {
-      street: '',
-      city: '',
-      state: '',
-    }
+    email: ''
   };
   users: User[];
   // tslint:disable-next-line:no-inferrable-types
@@ -35,12 +30,7 @@ export class UsersComponent implements OnInit {
       {
         firstName: 'John',
         lastName: 'Doe',
-        age: 30,
-        address: {
-          street: '50 Main Street',
-          city: 'Boston',
-          state: 'MA'
-        },
+        email: 'John@gmail.com',
         isActive: true,
         registered: new Date('01/02/2018 08:30:00'),
         hide: true
@@ -48,12 +38,7 @@ export class UsersComponent implements OnInit {
       {
         firstName: 'Kevin',
         lastName: 'Hart',
-        age: 34,
-        address: {
-          street: '20 School Street',
-          city: 'Boston',
-          state: 'MA'
-        },
+        email: 'Kevin@aol.com',
         isActive: false,
         registered: new Date('03/11/2018 08:30:00'),
         hide: true
@@ -61,12 +46,7 @@ export class UsersComponent implements OnInit {
       {
         firstName: 'Karen',
         lastName: 'Gillan',
-        age: 34,
-        address: {
-          street: 'The T.A.R.D.I.S',
-          city: 'London',
-          state: 'England'
-        },
+        email: 'Karen@tardis.uk',
         registered: new Date('11/02/2017 10:30:00'),
         hide: true
       }
@@ -87,12 +67,7 @@ export class UsersComponent implements OnInit {
       firstName: '',
       lastName: '',
       // These fields are not required, but adding defaults anyways.
-      age: null,
-      address: {
-        street: '',
-        city: '',
-        state: '',
-      }
+      email: '',
     };
   }
 
