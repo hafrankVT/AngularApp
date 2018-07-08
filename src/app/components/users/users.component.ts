@@ -9,7 +9,7 @@ import { User } from '../../models/User';
 export class UsersComponent implements OnInit {
   users: User[];
   // tslint:disable-next-line:no-inferrable-types
-  showExtended: boolean = true;
+  showExtended: boolean = false;
   // tslint:disable-next-line:no-inferrable-types
   loaded: boolean = false;
   enableAdd = true;
@@ -66,5 +66,10 @@ export class UsersComponent implements OnInit {
 
   addUser(user: User) {
     this.users.push(user);
+  }
+
+  fireEvent(e) {
+    console.log('Button Pressed');
+    console.log(e.type);
   }
 }
