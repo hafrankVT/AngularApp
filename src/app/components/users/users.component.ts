@@ -13,80 +13,58 @@ export class UsersComponent implements OnInit {
   // tslint:disable-next-line:no-inferrable-types
   loaded: boolean = false;
   enableAdd = true;
-  currentClasses = {};
-  currentStyles = {};
 
   constructor() { }
 
   ngOnInit() {
     console.log('init...');
-    setTimeout(() => {
-      this.users = [
-        {
-          firstName: 'John',
-          lastName: 'Doe',
-          age: 30,
-          address: {
-            street: '50 Main Street',
-            city: 'Boston',
-            state: 'MA'
-          },
-          image: 'http://lorempixel.com/600/600/people/3',
-          isActive: true
+    this.users = [
+      {
+        firstName: 'John',
+        lastName: 'Doe',
+        age: 30,
+        address: {
+          street: '50 Main Street',
+          city: 'Boston',
+          state: 'MA'
         },
-        {
-          firstName: 'Kevin',
-          lastName: 'Hart',
-          age: 34,
-          address: {
-            street: '20 School Street',
-            city: 'Boston',
-            state: 'MA'
-          },
-          image: 'http://lorempixel.com/600/600/people/2',
-          isActive: false
+        isActive: true,
+        registered: new Date('01/02/2018 08:30:00')
+      },
+      {
+        firstName: 'Kevin',
+        lastName: 'Hart',
+        age: 34,
+        address: {
+          street: '20 School Street',
+          city: 'Boston',
+          state: 'MA'
         },
-        {
-          firstName: 'Karen',
-          lastName: 'Gillan',
-          age: 34,
-          address: {
-            street: 'The T.A.R.D.I.S',
-            city: 'London',
-            state: 'England'
-          },
-          image: 'http://lorempixel.com/600/600/people/1'
-        }
-      ];
+        isActive: false,
+        registered: new Date('03/11/2018 08:30:00')
+      },
+      {
+        firstName: 'Karen',
+        lastName: 'Gillan',
+        age: 34,
+        address: {
+          street: 'The T.A.R.D.I.S',
+          city: 'London',
+          state: 'England'
+        },
+        registered: new Date('11/02/2017 10:30:00')
+      }
+    ];
 
-      this.addUser({
-        firstName: 'Matt',
-        lastName: 'Smith'
-      });
-      this.loaded = true;
-    }, 3000);
-    // This is where you would initialize API calls and such, rather than the constructor which is for Properties
-
-
-    this.setCurrentClasses();
-    this.setCurrentStyles();
+    this.addUser({
+      firstName: 'Matt',
+      lastName: 'Smith'
+    });
+    this.loaded = true;
   }
+  // This is where you would initialize API calls and such, rather than the constructor which is for Properties
 
   addUser(user: User) {
     this.users.push(user);
-  }
-
-  setCurrentClasses() {
-    this.currentClasses = {
-      'btn-success': this.enableAdd,
-      'big-text': this.showExtended
-    };
-  }
-
-  setCurrentStyles() {
-    this.currentStyles = {
-      'padding-top': this.showExtended ? '0' : '40px',
-      'font-size': this.showExtended ? '' : '72px'
-    };
   }
 }
