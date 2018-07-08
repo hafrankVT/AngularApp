@@ -25,16 +25,6 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     // Add 'implements OnInit' to the class.
-    this.user = {
-      firstName: 'John',
-      lastName: 'Doe',
-      age: 30,
-      address: {
-        street: '50 Main Street',
-        city: 'Boston',
-        state: 'MA'
-      }
-    };
   }
 }
 
