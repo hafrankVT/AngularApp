@@ -7,12 +7,24 @@ import { User } from '../../models/User';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+  user: User = {
+    // Default Values for a new user
+    firstName: '',
+    lastName: '',
+    // These fields are not required, but adding defaults anyways.
+    age: null,
+    address: {
+      street: '',
+      city: '',
+      state: '',
+    }
+  };
   users: User[];
   // tslint:disable-next-line:no-inferrable-types
   showExtended: boolean = true;
   // tslint:disable-next-line:no-inferrable-types
   loaded: boolean = false;
-  enableAdd = true;
+  enableAdd = false;
   showUserForm = false;
 
   constructor() { }
@@ -60,17 +72,28 @@ export class UsersComponent implements OnInit {
       }
     ];
 
-    this.addUser({
-      firstName: 'Matt',
-      lastName: 'Smith',
-      hide: true
-    });
     this.loaded = true;
   }
   // This is where you would initialize API calls and such, rather than the constructor which is for Properties
 
-  addUser(user: User) {
-    this.users.push(user);
+  addUser() {
+    this.user.isActive = true;
+    this.user.registered = new Date();
+    this.user.hide = true;
+    this.users.unshift(this.user);
+
+    this.user = {
+      // Default Values for a new user
+      firstName: '',
+      lastName: '',
+      // These fields are not required, but adding defaults anyways.
+      age: null,
+      address: {
+        street: '',
+        city: '',
+        state: '',
+      }
+    };
   }
 
   // toggleHide(user: User) {
