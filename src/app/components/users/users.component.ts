@@ -23,15 +23,18 @@ export class UsersComponent implements OnInit {
   enableAdd = false;
   showUserForm = false;
   @ViewChild('userForm') form: any;
+  data: any;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
     console.log('init...');
     console.log('Loading users from DataService...');
-    this.users = this.dataService.getUsers();
+    this.dataService.getUsers().subscribe(users => {
+      this.users = users;
+      this.loaded = true;
+    });
 
-    this.loaded = true;
   }
   // This is where you would initialize API calls and such, rather than the constructor which is for Properties
 
